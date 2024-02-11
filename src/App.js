@@ -1,5 +1,5 @@
 import './App.css';
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 import Home from './Components/Home/Home'
 import Products from './Components/Products/Products'
 import Cart from './Components/Cart/Cart'
@@ -14,7 +14,7 @@ import { UserContext } from './Context/UserContext';
 import { useContext, useEffect } from 'react';
 import ProtectedRoutes from './Components/ProtectedRoutes/ProtectedRoutes';
 
-let routes = createBrowserRouter([
+let routes = createHashRouter([
   { path: '/', element: <Layout />, children: [
     {index:true , element:<ProtectedRoutes><Home/></ProtectedRoutes>  },
     {path:'Products' , element:<ProtectedRoutes><Products/></ProtectedRoutes> },

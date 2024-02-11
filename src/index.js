@@ -9,12 +9,19 @@ import CounterContextProvider from './Context/CounterContext';
 import UserContextProvider from './Context/UserContext';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
+let queryClient=new QueryClient()
 root.render(
+    <QueryClientProvider client={queryClient}>
     <UserContextProvider>
     <CounterContextProvider>
     <App />
     </CounterContextProvider>
     </UserContextProvider>
+    </QueryClientProvider>
+   
    
 );
