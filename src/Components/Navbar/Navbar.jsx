@@ -3,8 +3,11 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../Assets/images/freshcart-logo.svg'
 import { UserContext } from '../../Context/UserContext';
+import { CartContext } from '../../Context/CartContext';
 
 export default function Navbar() {
+let {numberOfProducts} =  useContext(CartContext)
+
   let navigate=useNavigate();
  function logout(){
   localStorage.removeItem("token")
@@ -37,6 +40,12 @@ export default function Navbar() {
         <li className="nav-item">
           <Link className="nav-link" to="/categories">Categories</Link>
         </li>
+        <li className="nav-item">
+        <Link className="nav-link position-relative" to="/cart">Cart<span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+        {numberOfProducts}
+        <span className="visually-hidden">Cart items</span>
+      </span></Link>
+      </li>
         <li className="nav-item">
           <Link className="nav-link" to="/brands">Brands</Link>
         </li>

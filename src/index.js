@@ -10,17 +10,24 @@ import UserContextProvider from './Context/UserContext';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { QueryClient, QueryClientProvider } from 'react-query';
+import CartContextProvider from './Context/CartContext';
+import  { Toaster } from 'react-hot-toast';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let queryClient=new QueryClient()
 root.render(
     <QueryClientProvider client={queryClient}>
+    <CartContextProvider>
     <UserContextProvider>
     <CounterContextProvider>
-    <App />
+    <App>
+    <Toaster />
+    </App>
     </CounterContextProvider>
     </UserContextProvider>
+    </CartContextProvider>
     </QueryClientProvider>
    
    

@@ -13,11 +13,12 @@ import "slick-carousel/slick/slick-theme.css";
 import { UserContext } from './Context/UserContext';
 import { useContext, useEffect } from 'react';
 import ProtectedRoutes from './Components/ProtectedRoutes/ProtectedRoutes';
-
+import ProductDeatils from './Components/ProductDeatils/ProductDeatils';
 let routes = createHashRouter([
   { path: '/', element: <Layout />, children: [
     {index:true , element:<ProtectedRoutes><Home/></ProtectedRoutes>  },
     {path:'Products' , element:<ProtectedRoutes><Products/></ProtectedRoutes> },
+    {path:'details/:productId' , element:<ProtectedRoutes><ProductDeatils/></ProtectedRoutes> },
     {path:'Cart' , element:<ProtectedRoutes><Cart/></ProtectedRoutes> },
     {path:'Categories' , element:<ProtectedRoutes><Categories/></ProtectedRoutes> },
     {path:'Brands' , element:<ProtectedRoutes><Brands/></ProtectedRoutes> },
@@ -27,7 +28,7 @@ let routes = createHashRouter([
 ])
 
 
-function App() {
+function App(props) {
   let {setuserToken}=useContext(UserContext)
  
   useEffect(()=>{
@@ -37,7 +38,11 @@ function App() {
   }, );
 
 
-  return <RouterProvider router={routes}></RouterProvider>
+  return <>
+  <RouterProvider router={routes}></RouterProvider>
+  {props.children}
+  </>
+ 
 }
 
 export default App;

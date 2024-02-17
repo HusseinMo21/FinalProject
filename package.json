@@ -1,5 +1,5 @@
 {
-  "homepage": "https://HusseinMo21.github.io/FinalProject",
+  "homepage": "https://HusseinMo21.github.io/",
   "name": "finalproject",
   "version": "0.1.0",
   "private": true,
@@ -14,11 +14,13 @@
     "generate-react-cli": "^8.3.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-hot-toast": "^2.4.1",
     "react-loader-spinner": "^6.1.6",
     "react-query": "^3.39.3",
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "react-slick": "^0.30.1",
+    "react-toastify": "^10.0.4",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0"
