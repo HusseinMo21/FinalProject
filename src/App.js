@@ -14,6 +14,14 @@ import { UserContext } from './Context/UserContext';
 import { useContext, useEffect } from 'react';
 import ProtectedRoutes from './Components/ProtectedRoutes/ProtectedRoutes';
 import ProductDeatils from './Components/ProductDeatils/ProductDeatils';
+import Spc from './Components/Spc/Spc';
+import Checkout from './Components/Checkout/Checkout';
+import SubCategories from './Components/SubCategories/SubCategories';
+import ForgetPassword from './Components/ForgetPassword/ForgetPassword';
+import NotFound from './Components/NotFound/NotFound';
+import MyOrders from './Components/MyOrders/MyOrders';
+import Profile from './Components/Profile/Profile';
+
 let routes = createHashRouter([
   { path: '/', element: <Layout />, children: [
     {index:true , element:<ProtectedRoutes><Home/></ProtectedRoutes>  },
@@ -22,15 +30,22 @@ let routes = createHashRouter([
     {path:'Cart' , element:<ProtectedRoutes><Cart/></ProtectedRoutes> },
     {path:'Categories' , element:<ProtectedRoutes><Categories/></ProtectedRoutes> },
     {path:'Brands' , element:<ProtectedRoutes><Brands/></ProtectedRoutes> },
+    {path:'spc/:id' , element:<ProtectedRoutes><Spc/></ProtectedRoutes> },
+    {path:'sub/:id' , element:<ProtectedRoutes><SubCategories/></ProtectedRoutes> },
+    {path:'checkout', element:<ProtectedRoutes><Checkout/></ProtectedRoutes> },
+    {path:'allorders', element:<ProtectedRoutes><MyOrders/></ProtectedRoutes> },
+    {path:'profile', element:<ProtectedRoutes><Profile/></ProtectedRoutes> },
+    {path:'forgetPassword' , element:<ForgetPassword/>},
     {path:'Login' , element:<Login/>},
     {path:'Register' , element:<Register/>},
+    {path:'*' , element:<NotFound/>},
   ] }
 ])
 
 
 function App(props) {
   let {setuserToken}=useContext(UserContext)
- 
+
   useEffect(()=>{
     if(localStorage.getItem("token") !== null){
       setuserToken(localStorage.getItem("token"))
@@ -46,3 +61,4 @@ function App(props) {
 }
 
 export default App;
+

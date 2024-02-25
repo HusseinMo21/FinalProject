@@ -20,7 +20,7 @@ let {numberOfProducts} =  useContext(CartContext)
 
   let {userToken}=useContext(UserContext)
   return <>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className="text-dark navbar navbar-expand-lg bg-body-tertiary">
       <div className="container">
         <Link className="navbar-brand" to="/">
           <img src={logo} alt="fresh cart logo" />
@@ -60,6 +60,9 @@ let {numberOfProducts} =  useContext(CartContext)
               <i className='fab mx-2 fa-instagram'></i>
               <i className='fab mx-2 fa-youtube'></i>
               <i className='fab mx-2 fa-tiktok'></i>
+              <li className="nav-item">
+              <Link className="nav-link" to="/profile">Profile</Link>
+            </li>
             </li>
 
             {userToken!==null? <> <li className="nav-item">

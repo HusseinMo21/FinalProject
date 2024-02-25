@@ -38,7 +38,7 @@ export default function ProductDeatils() {
   </div>
   <div className="col-md-9 mt-5">
   <p className='mt-5'>{SingleProduct.title}</p>
-  <h5 className='text-muted'>{SingleProduct?.category?.name}</h5>
+  <h5 className='text-main'>{SingleProduct?.category?.name}</h5>
  <p>{SingleProduct.description}</p>
  <div className="d-flex justify-content-between">
  <p>{SingleProduct.price}EGP</p>

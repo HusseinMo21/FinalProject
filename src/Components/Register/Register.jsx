@@ -5,6 +5,7 @@ import * as Yup from 'yup'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { BallTriangle } from 'react-loader-spinner'
+import { Helmet } from 'react-helmet';
 export default function Register() {
   let navigate=useNavigate();
 
@@ -47,6 +48,10 @@ export default function Register() {
 
 
   return <>
+  <Helmet>
+  <title>Register</title>
+  <meta name="description" content="Helmet application" />
+</Helmet>
    <div className="container w-75">
     <h3 className='mx-5 mt-3 px-5'>Register Now:</h3>
    

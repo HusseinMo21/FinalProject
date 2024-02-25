@@ -13,22 +13,28 @@ import { QueryClient, QueryClientProvider } from 'react-query';
 import CartContextProvider from './Context/CartContext';
 import  { Toaster } from 'react-hot-toast';
 import 'react-toastify/dist/ReactToastify.css';
+import CategoryContextProvider from './Context/CategoryContext';
+import { Provider } from 'react-redux';
+import store from './Context/Redux/Store';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 let queryClient=new QueryClient()
 root.render(
+    <Provider store={store}>
     <QueryClientProvider client={queryClient}>
     <CartContextProvider>
     <UserContextProvider>
     <CounterContextProvider>
+    <CategoryContextProvider>
     <App>
     <Toaster />
-    </App>
+    </App>    
+    </CategoryContextProvider>
     </CounterContextProvider>
     </UserContextProvider>
     </CartContextProvider>
     </QueryClientProvider>
-   
+    </Provider>
    
 );

@@ -6,6 +6,7 @@ import * as Yup from 'yup'
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
 import { UserContext } from '../../Context/UserContext';
+import { Helmet } from 'react-helmet';
 export default function Login() {
 
   let {setuserToken}=useContext(UserContext)
@@ -47,8 +48,12 @@ export default function Login() {
   })
   
   return <>
+  <Helmet>
+  <title>Login</title>
+  <meta name="description" content="Helmet application" />
+</Helmet>
    <div className="container w-75">
-    <h3 className='mx-5 mt-3 px-5'>Register Now:</h3>
+    <h3 className='mx-5 mt-3 px-5 text-white'>Register Now:</h3>
    
     <form onSubmit={RegisterForm.handleSubmit} className='mx-5 px-5'>
     {errorMassage && <div className='alert alert-danger'>{errorMassage}</div>}
@@ -62,7 +67,8 @@ export default function Login() {
     <input type="password" id='password'  placeholder='password' className='form-control mb-3' value={RegisterForm.values.password} onChange={RegisterForm.handleChange} />
     {RegisterForm.errors.password && RegisterForm.touched.password ?<div className='alert alert-danger'>{RegisterForm.errors.password}</div>:null}
     </div>
-    <Link to="/register"  className={`${styles.regbtn} 'btn  text-dark mb-4'`} >Register</Link>
+    <Link to={"/register"}  className={`${styles.regbtn} 'btn  text-white mb-4'`} >Register</Link>
+    <Link to={"/forgetPassword"}  className={`${styles.regbtn} 'btn  text-white mb-4'`} >ForgetPasswordd</Link>
   <button className='btn bg-main text-white d-block ms-auto mt-2' type='submit' disabled={!(RegisterForm.isValid && RegisterForm.dirty)}>{isLoading?<span className='text-center'> <BallTriangle
     height={20}
     width={20}

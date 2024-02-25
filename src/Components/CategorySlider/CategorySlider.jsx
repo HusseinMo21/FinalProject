@@ -9,6 +9,8 @@ export default function CategorySlider() {
     speed: 500,
     slidesToShow: 8,
     slidesToScroll: 1,
+    arrows:false,
+    autoplay: true,
   };
 
   const [categores,setCategores]=useState([])
