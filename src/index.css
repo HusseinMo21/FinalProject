@@ -11,7 +11,7 @@
 
 body{
     font-family: var(--font-family) !important;
-    background-image: url('./Assets/images/newbg.jpg');
+    background-image: url('./Assets/images/newbg6.png');
     background-position: center;
     background-size: cover;
     object-fit: cover;
@@ -19,6 +19,15 @@ body{
     background-repeat: no-repeat;
     color: #fff!important;
 }
+.navbar{
+    background:linear-gradient(90deg,rgba(0,212,255,1)  0%, rgba(9,9,121,1) 35%, rgba(2,0,36,1)  100%);
+    color: #fff;
+    margin-top: 20px;
+    margin-left: 10%;
+    border-radius: 20px;
+    width: 80%;
+  
+  }
 .rating-color
 {
     color: var(--rating-color);

@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Helmet } from "react-helmet";
 import MainSlider from "../MainSlider/MainSlider";
 import CategorySlider from './../CategorySlider/CategorySlider';
 import { Offline } from "react-detect-offline";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
+import { CartContext } from './../../Context/CartContext';
 export default function Home() {
+let {setNumberOfProducts}=  useContext(CartContext)
+  if(localStorage.getItem("token")){
+    setNumberOfProducts(localStorage.getItem("numOfCartItems"))
+  }
 
     // useSelector((state)=> console.log(state))
   return<>
@@ -23,7 +28,7 @@ export default function Home() {
 
 
 
-
+ 
 
   <MainSlider/>
   <CategorySlider/>

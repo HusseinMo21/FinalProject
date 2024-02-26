@@ -11,8 +11,7 @@ export default function UserContextProvider(props){
     const token = localStorage.getItem("token");
     const decodedToken=token?jwtDecode(token):{};
     const {id}=decodedToken;
-
-
+   
     async function getOrders(){
         return await axios.get(`https://ecommerce.routemisr.com/api/v1/orders/user/${id}`)
         .then(res=>res)
@@ -20,7 +19,7 @@ export default function UserContextProvider(props){
        }
 
 
-return <UserContext.Provider value={{userToken,setuserToken,id,getOrders}}>
+return <UserContext.Provider value={{userToken,setuserToken,id,getOrders,decodedToken}}>
     {props.children}
     </UserContext.Provider>
 }

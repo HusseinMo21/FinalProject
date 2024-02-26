@@ -15,6 +15,7 @@ export default function CartContextProvider(props){
             }
         })
         setNumberOfProducts(data.numOfCartItems)
+        localStorage.setItem("numOfCartItems",data.numOfCartItems)
         return data
         
     }
@@ -27,6 +28,7 @@ export default function CartContextProvider(props){
             }
         })
         setNumberOfProducts(data?.numOfCartItems)
+        localStorage.setItem("numOfCartItems",data.numOfCartItems)
         setCartId(data?.data._id)
         return data
         
@@ -44,6 +46,7 @@ export default function CartContextProvider(props){
             }
         })
         setNumberOfProducts(data.numOfCartItems)
+        localStorage.setItem("numOfCartItems",data.numOfCartItems)
         return data
 
 
@@ -58,6 +61,7 @@ export default function CartContextProvider(props){
            }
        })
        setNumberOfProducts(data.numOfCartItems)
+       localStorage.setItem("numOfCartItems",data.numOfCartItems)
        return data
     }
 
