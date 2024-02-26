@@ -43,7 +43,7 @@ async function deleteWish(productId,e){
   console.log(data);
   e.target.classList.replace('text-danger','text-info')
   toast.success(data.message)
- 
+  
 
 }
 
@@ -105,7 +105,7 @@ const {addToCart} = useContext(CartContext)
                  </span>
                   </div>
                   </Link>
-                  {localStorage.getItem("idwish")?.includes(product.id) ? <span onClick={(e) => deleteWish(product.id,e)}><i className="fas fa-heart text-danger" ></i></span> :<span  onClick={(e) => addtoWish(product.id,e)}><i className="fas fa-heart text-info"></i></span>}
+                  {localStorage.getItem("idwish")?.includes(product.id) ? <span onClick={(e) => deleteWish(product.id,e)}><i className="fas fa-heart" ></i></span> :<span  onClick={(e) => addtoWish(product.id,e)}><i className="fas fa-heart"></i></span>}
                   <button onClick={() => addProductToCart(product.id)} className=" btn bg-main text-white w-100 btn-sm mt-3">
                     add to Cart
                   </button>
