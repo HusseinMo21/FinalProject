@@ -18,6 +18,7 @@ body{
     min-height: 100vh;
     background-repeat: no-repeat;
     color: #fff!important;
+    overflow-x: hidden;
 }
 .navbar{
     background:linear-gradient(90deg,rgba(0,212,255,1)  0%, rgba(9,9,121,1) 35%, rgba(2,0,36,1)  100%);

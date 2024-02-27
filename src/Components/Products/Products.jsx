@@ -10,9 +10,18 @@ import Loader from "../Loader/Loader";
 import { Helmet } from "react-helmet";
 export default function Products() {
 
+
+
+let {setNumberOfProducts}=  useContext(CartContext)
+  if(localStorage.getItem("token")){
+    setNumberOfProducts(localStorage.getItem("numOfCartItems"))
+  }
+
   const [isClicked, setIsClicked] = useState(false);
 
-  const y=[]
+  let y=[]
+
+  
   async function addtoWish(productId,e){
     let {data}= await axios.post(`https://ecommerce.routemisr.com/api/v1/wishlist`,{
       productId
@@ -21,36 +30,18 @@ export default function Products() {
             token:localStorage.getItem("token")
         }
     })
-    
     y.push(productId)
     e.target.classList.replace('text-info','text-danger')
     setIsClicked(!isClicked)
     localStorage.setItem("idwish",y)
     toast.success(data.message)
-    
   }
-if(localStorage.getItem("idwish") !== null){
-let x=localStorage.getItem("idwish")
-console.log(x);
-}
 
-async function deleteWish(productId,e){
-  let {data}= await axios.delete(`https://ecommerce.routemisr.com/api/v1/wishlist/${productId}`,{
-      headers:{
-          token:localStorage.getItem("token")
-      }
-  })
-  console.log(data);
-  e.target.classList.replace('text-danger','text-info')
-  toast.success(data.message)
+
+
+
+
   
-
-}
-
-
-
-
-
 const {addToCart} = useContext(CartContext)
   async function addProductToCart(id) {
     let cartDetails = await addToCart(id)
@@ -60,10 +51,6 @@ const {addToCart} = useContext(CartContext)
           toast.error(cartDetails.message);
         }
   }
-  // function getOnfo(id,e){
-  //   e.target.classList.replace('text-info','text-danger')
-  // }
-
 
   function getProducts() {
     return axios.get(`https://ecommerce.routemisr.com/api/v1/products`);
@@ -105,7 +92,7 @@ const {addToCart} = useContext(CartContext)
                  </span>
                   </div>
                   </Link>
-                  {localStorage.getItem("idwish")?.includes(product.id) ? <span onClick={(e) => deleteWish(product.id,e)}><i className="fas fa-heart" ></i></span> :<span  onClick={(e) => addtoWish(product.id,e)}><i className="fas fa-heart"></i></span>}
+                  <span  onClick={(e) => addtoWish(product.id,e)}><i className="fas fa-heart text-info"></i></span>
                   <button onClick={() => addProductToCart(product.id)} className=" btn bg-main text-white w-100 btn-sm mt-3">
                     add to Cart
                   </button>
@@ -119,6 +106,5 @@ const {addToCart} = useContext(CartContext)
     </>
   );
 }
-// <span onClick={() => setInWishList(!inWishList)}>{inWishList?<i  className="fas fa-heart rating-color mx-1"></i>:<i  className="fa-regular fa-heart rating-color mx-1"></i> }</span> 
 
-// <span onClick={(e) => addtoWish(product.id,e)}><i className="fas fa-heart text-info"></i></span>
+//{localStorage.getItem("idwish")?.includes(product.id) ? <span onClick={(e) => addtoWish(product.id,e)}><i className="fas fa-heart text-danger" ></i></span> :<span  onClick={(e) => addtoWish(product.id,e)}><i className="fas fa-heart text-info"></i></span>}

@@ -16,6 +16,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import CategoryContextProvider from './Context/CategoryContext';
 import { Provider } from 'react-redux';
 import store from './Context/Redux/Store';
+import WishContextProvider from './Context/Wish';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,6 +24,7 @@ let queryClient=new QueryClient()
 root.render(
     <Provider store={store}>
     <QueryClientProvider client={queryClient}>
+    <WishContextProvider>
     <CartContextProvider>
     <UserContextProvider>
     <CounterContextProvider>
@@ -34,6 +36,7 @@ root.render(
     </CounterContextProvider>
     </UserContextProvider>
     </CartContextProvider>
+    </WishContextProvider>
     </QueryClientProvider>
     </Provider>
    

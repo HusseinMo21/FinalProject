@@ -28,8 +28,8 @@ export default function CategorySlider() {
     <Slider {...settings}>
 
     {
-      categores.map(categore=><div className="cat">
-      <img src={categore.image} height={200} className='w-100 px-1' alt="" />
+      categores.map((categore)=><div className="cat">
+      <img key={categore.id} src={categore.image} height={200} className='w-100 px-1' alt="" />
       <h5>{categore.name}</h5>
       </div>)
     }

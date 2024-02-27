@@ -30,22 +30,30 @@ return <>
     <h2>Category</h2>
     <div className="row">
       {data?.data.map((product) => (
-        <div key={product._id} className="col-md-4 mt-5 cursor-pointer">
+        <div  key={product._id} className="card col-md-3 mt-5 cursor-pointer " width={200}>
         <Link to={`/sub/${product._id}`} className='text-decoration-none'>
- <img src={product.image} height={300} className='w-100' alt="" />
-  <h2 className='text-center text-white'>{product.name}</h2>
-  </Link>
-  </div>
+          <img src={product.image} height={300} className='w-100' alt=""/>
+          <div className="card-body">
+          <h2 className='text-center text-dark'>{product.name}</h2>
+          </div>
+          </Link>
+        </div>
+        
       ))}
     </div>
   </div>
 )}
 
 
-
 </> 
 
 }
 
+// <div key={product._id} className="col-md-4 mt-5 cursor-pointer">
+// <Link to={`/sub/${product._id}`} className='text-decoration-none'>
+// <img src={product.image} height={300} className='w-100' alt="" />
+// <h2 className='text-center text-white'>{product.name}</h2>
+// </Link>
+// </div>
 
 

@@ -32,5 +32,6 @@ let {setNumberOfProducts}=  useContext(CartContext)
 
   <MainSlider/>
   <CategorySlider/>
+  
   </>
 }
